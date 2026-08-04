@@ -1,0 +1,4 @@
+{
+  "_comment": "Local path -> live URL replacements applied by scripts/build.py, longest key first. After copying this template to pages/<name>/, change the path below to match. Assets are served by jsDelivr from this repo on GitHub: commit the image, push, rebuild.",
+  "assets/": "https://cdn.jsdelivr.net/gh/PetervanLunteren/addaxdatascience-web@main/pages/NAME/assets/"
+}

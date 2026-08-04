@@ -1,0 +1,4 @@
+{
+  "_comment": "Local path -> live URL replacements applied by scripts/build.py, longest key first. Assets are served by jsDelivr straight from this repo on GitHub, so publishing an image = commit it, push, rebuild the snippet. @main means jsDelivr follows the main branch (cache refreshes within ~12 h); pin to a commit sha instead if a URL must never move.",
+  "assets/": "https://cdn.jsdelivr.net/gh/PetervanLunteren/addaxdatascience-web@main/pages/addaxai/assets/"
+}
