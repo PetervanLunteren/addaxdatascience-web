@@ -9,15 +9,19 @@
       in the currently live snippet will 404 once the CDN cache refreshes
       (~12 h after push). Rebuilt snippet is ready in
       `pages/addaxai/addaxai.wordpress.html`.
-- [ ] Update the screenshot for "Count by event, not by photo". Current
-      image is the grid (`counts.webp`); better would be the modal with the
-      film strip below it. `https://docs.addaxai.com/img/counts-event.webp`
-      may be that shot — check it, otherwise make a new one.
-- [ ] Consider a section with external AddaxAI references: the docs, the
-      forum, the GitHub repo — what else?
-- [ ] Decide whether the unused `shared/fonts/inter-latin-var.woff2` and
-      `space-grotesk-latin-var.woff2` (left over from an earlier design pass;
-      the page now embeds Lexend) should be deleted.
+- [x] Update the screenshot for "Count by event, not by photo".
+      `docs.addaxai.com/img/counts-event.webp` was indeed the film strip
+      shot; cropped to the modal interior and saved as
+      `assets/screenshots/countsEvent.webp`. The old grid shot
+      (`counts.webp`) is removed; the docs site still hosts a copy as
+      `project-counts.webp`.
+- [x] Add a section with external AddaxAI references. The forum panel is now
+      a three-card "Docs, community and code" resources section linking the
+      docs, the forum invite, and the GitHub repo.
+- [x] Deleted the unused `inter-latin-var.woff2` and
+      `space-grotesk-latin-var.woff2` from `shared/fonts/` (leftovers from an
+      earlier design pass; git history keeps them). Only the embedded Lexend
+      remains.
 
 ## Done / superseded
 
