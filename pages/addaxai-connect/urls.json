@@ -1,0 +1,4 @@
+{
+  "_comment": "Local path -> live URL replacements applied by scripts/build.py, longest key first. Assets are served by jsDelivr straight from this repo on GitHub: commit the image, push, rebuild the snippet.",
+  "assets/": "https://cdn.jsdelivr.net/gh/PetervanLunteren/addaxdatascience-web@main/pages/addaxai-connect/assets/"
+}

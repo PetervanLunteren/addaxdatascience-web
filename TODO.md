@@ -1,5 +1,25 @@
 # Backlog
 
+- [ ] Publish the AddaxAI Connect page: commit and push, create the draft
+      WordPress page (slug `addaxai-connect`, same full-width template as the
+      AddaxAI page), paste `pages/addaxai-connect/addaxai-connect.wordpress.html`,
+      check, publish, purge cache. Then phase 2 placements: cross-link block
+      on the AddaxAI page, nav dropdown under ADDAXAI, homepage software
+      section, footer link to the new page.
+- [ ] Maintenance: the Connect page's deploy command, server spec ($48/mo
+      example) and camera models mirror connect.addaxai.com/deployment/ and
+      /camera-requirements/. If those docs change, update the "what you'll
+      need", costs and FAQ sections to match.
+- [ ] Optional: replace the Connect app screenshots (map, cameras, images,
+      settings, users) with fresh captures from demo.addaxai.com. The current
+      ones were lifted from the early-warning-systems page and match the demo,
+      but a new capture would let us pick the framing.
+- [ ] Unrelated, spotted while reviewing the live site: the `cdla.io` link on
+      the AddaxAI page now redirects to `cdla.dev` (the Connect page already
+      uses the new domain); the leftover theme demo posts and `/sandbox/` are
+      live and in the sitemap; the homepage and service pages show flat grey
+      hero bands where an image may be missing.
+
 - [x] Make this repo a proper repo for Claude Code sessions: CLAUDE.md,
       README, CONVENTIONS.md, a build script for the WordPress snippet, and a
       `pages/<name>/` structure plus `pages/_template/` so future pages

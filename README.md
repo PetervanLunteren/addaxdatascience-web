@@ -8,10 +8,12 @@ WordPress custom HTML block as a generated snippet.
 | path | what it is |
 | --- | --- |
 | `pages/addaxai/index.html` | the AddaxAI landing page (https://addaxdatascience.com/addaxai/) — edit this |
-| `pages/addaxai/addaxai.wordpress.html` | generated paste snippet — never edit by hand |
-| `pages/addaxai/urls.json` | local asset path → live URL rewrites used by the build |
-| `pages/addaxai/assets/` | images for that page, served to the live site via jsDelivr |
-| `pages/_template/` | boilerplate for starting the next page (e.g. AddaxAI Connect) |
+| `pages/addaxai-connect/index.html` | the AddaxAI Connect landing page (https://addaxdatascience.com/addaxai-connect/) |
+| `pages/<name>/<name>.wordpress.html` | generated paste snippets — never edit by hand |
+| `pages/<name>/urls.json` | local asset path → live URL rewrites used by the build |
+| `pages/<name>/assets/` | images for that page, served to the live site via jsDelivr |
+| `pages/addaxai-connect/mockup/` | source for the hero's phone mockup, with re-render instructions |
+| `pages/_template/` | boilerplate for starting the next page |
 | `shared/fonts/` | original woff2 files; pages embed them as base64 |
 | `scripts/build.py` | source → snippet: extract, rewrite URLs, validate |
 | `scripts/screenshot.py` | render a page to PNG with headless Chrome |
