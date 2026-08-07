@@ -14,7 +14,7 @@
   and swaps local assets/ paths for their live jsDelivr URLs (see urls.json).
   Publishing workflow and gotchas: README.md at the repo root.
 
-  Content notes: the deploy command, server spec and $48/mo example come from
+  Content notes: the deploy command and server spec come from
   connect.addaxai.com/deployment/, the camera models from
   connect.addaxai.com/camera-requirements/. If those docs change, update the
   "what you'll need", costs and FAQ sections to match.
@@ -589,7 +589,6 @@
 
 .acn-lp .acn-modeLink,
 .acn-lp .acn-faqMore a,
-.acn-lp .acn-finalDocs a,
 .acn-lp .acn-textLink {
   font-weight: 600;
   color: var(--acn-primary);
@@ -597,7 +596,6 @@
 
 .acn-lp .acn-modeLink:hover,
 .acn-lp .acn-faqMore a:hover,
-.acn-lp .acn-finalDocs a:hover,
 .acn-lp .acn-textLink:hover { text-decoration: underline; }
 
 /* ---------- Link cards ---------- */
@@ -727,53 +725,66 @@
 .acn-lp .acn-panelDark .acn-btnSolid:hover { background: #eef2f6; color: var(--acn-deep); }
 .acn-lp .acn-panelDark .acn-note { color: rgba(255, 255, 255, 0.7); }
 .acn-lp .acn-panelDark .acn-note a { color: #fff; text-decoration: underline; }
-.acn-lp .acn-panelEyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--acn-accent);
-  margin: 0 0 0.9rem;
-}
-
 /* ---------- FAQ ---------- */
+/* the questions sit on a card like the costs table, so the section has the
+   same weight as the rest of the page instead of floating as bare rules */
 .acn-lp .acn-faq {
-  margin-top: 1.5rem;
-  border-top: 1px solid var(--acn-e200);
+  margin-top: 2rem;
+  background: var(--acn-bg);
+  border-radius: 18px;
+  box-shadow: var(--acn-shadow-sm);
+  overflow: hidden;
+  text-align: left;
 }
 
-.acn-lp .acn-faqItem {
-  border-bottom: 1px solid var(--acn-e200);
-  padding: 0.25rem 0;
-}
+.acn-lp .acn-faqItem { border-top: 1px solid var(--acn-e200); }
+.acn-lp .acn-faqItem:first-child { border-top: 0; }
 
 .acn-lp .acn-faqQ {
   cursor: pointer;
   font-weight: 600;
   font-size: 1.05rem;
-  padding: 0.9rem 0.25rem;
+  padding: 1.15rem 1.5rem;
   list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  transition: background 0.14s ease;
 }
 
+.acn-lp .acn-faqQ:hover { background: #f6f9fc; }
 .acn-lp .acn-faqQ::-webkit-details-marker { display: none; }
 
+/* a chip rather than a bare +, so it reads as something you can open */
 .acn-lp .acn-faqQ::before {
   content: "+";
-  display: inline-block;
-  width: 1.25rem;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(30, 78, 140, 0.10);
   color: var(--acn-primary);
   font-weight: 700;
+  font-size: 1rem;
+  line-height: 24px;
+  text-align: center;
+  transition: background 0.14s ease, color 0.14s ease;
 }
 
-.acn-lp .acn-faqItem[open] .acn-faqQ::before { content: "\2013"; }
+.acn-lp .acn-faqItem[open] .acn-faqQ::before {
+  content: "\2013";
+  background: var(--acn-primary);
+  color: #fff;
+}
 
 .acn-lp .acn-faqA {
-  margin: 0 0 0.9rem 1.25rem;
+  margin: -0.35rem 1.5rem 1.35rem 3.9rem;
   color: var(--acn-e700);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
-.acn-lp .acn-faqMore { margin-top: 1.5rem; font-weight: 600; }
+.acn-lp .acn-faqMore { margin-top: 1.5rem; color: var(--acn-e700); }
+.acn-lp .acn-faqMore a { font-weight: 600; }
 
 /* ---------- Final CTA ---------- */
 .acn-lp .acn-finalCta {
@@ -785,16 +796,19 @@
   color: #fff;
 }
 .acn-lp .acn-finalCta .acn-h2 { color: #fff; }
-.acn-lp .acn-finalCta .acn-lead { color: rgba(255, 255, 255, 0.85); }
 .acn-lp .acn-finalCta .acn-btnSolid { background: #fff; color: var(--acn-deep); }
 .acn-lp .acn-finalCta .acn-btnSolid:hover {
   background: #eef2f6;
   color: var(--acn-deep);
   transform: translateY(-1px);
 }
-.acn-lp .acn-finalDocs { margin-top: 1.5rem; font-weight: 600; }
 
-.acn-lp .acn-finalCta .acn-finalDocs a { color: #fff; text-decoration: underline; }
+
+.acn-lp .acn-finalNote {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.6);
+}
 
 /* ---------- Partners ---------- */
 .acn-lp .acn-partners {
@@ -1232,15 +1246,15 @@
         </div>
         <div class="acn-costRow">
           <div><p class="acn-costName">A server</p><p class="acn-costNote">Example: a DigitalOcean droplet with Ubuntu, 8 GB RAM and 160 GB SSD</p></div>
-          <p class="acn-costPrice">~$48 / month</p>
+          <p class="acn-costPrice">~$50 / month</p>
         </div>
         <div class="acn-costRow">
-          <div><p class="acn-costName">Cameras</p><p class="acn-costNote">Cellular camera traps with FTPS upload, plus enclosures; one-time purchase</p></div>
-          <p class="acn-costPrice">varies by model</p>
+          <div><p class="acn-costName">Cameras</p><p class="acn-costNote">Cellular camera traps with FTPS upload; one-time purchase, varies by model</p></div>
+          <p class="acn-costPrice">~$150 each</p>
         </div>
         <div class="acn-costRow">
-          <div><p class="acn-costName">SIM data plans</p><p class="acn-costNote">One per camera; depends on provider and image volume</p></div>
-          <p class="acn-costPrice">per camera / month</p>
+          <div><p class="acn-costName">SIM data plans</p><p class="acn-costNote">One per camera. Example from the Netherlands; varies by country and image volume</p></div>
+          <p class="acn-costPrice">~$6 / camera / month</p>
         </div>
         <div class="acn-costRow">
           <div><p class="acn-costName">A domain name</p><p class="acn-costNote">Any registrar</p></div>
@@ -1259,7 +1273,6 @@
   <!-- ---------- DIY or outsourced ---------- -->
   <section class="acn-section">
     <div class="acn-panel acn-panelDark">
-      <p class="acn-panelEyebrow">The honest part</p>
       <h2 class="acn-h2">Do it yourself, or leave it to us</h2>
       <p class="acn-sub">
         Everything on this page is doable without us: the code is open, the
@@ -1273,7 +1286,7 @@
       <p class="acn-note" style="margin-top:1rem">
         Or simply
         <a class="acn-textLink" href="https://addaxdatascience.com/contact/" target="_blank" rel="noopener">get in touch</a>
-        and tell us about your project area.
+        and tell us about your project.
       </p>
     </div>
   </section>
@@ -1281,47 +1294,45 @@
   <!-- ---------- FAQ ---------- -->
   <section class="acn-section acn-sectionAlt">
     <div class="acn-narrow">
+      <p class="acn-eyebrow">before you ask</p>
       <h2 class="acn-h2">Common questions</h2>
       <div class="acn-faq">
         <details class="acn-faqItem">
           <summary class="acn-faqQ">How is this different from AddaxAI?</summary>
-          <p class="acn-faqA"><a class="acn-textLink" href="https://addaxdatascience.com/addaxai/">AddaxAI</a> is a desktop app: you bring photos to your own computer and analyse them there. AddaxAI Connect is its online sister: cameras send photos to your own server by themselves, and the results appear in a shared web dashboard with real-time alerts. Many teams use both.</p>
+          <p class="acn-faqA"><a class="acn-textLink" href="https://addaxdatascience.com/addaxai/">AddaxAI</a> is a desktop app. You copy photos to your computer and check them there. Connect runs on a server. Your cameras send their photos in by themselves, and your team sees the results in a web dashboard.</p>
         </details>
         <details class="acn-faqItem">
           <summary class="acn-faqQ">Do I need to be a developer?</summary>
-          <p class="acn-faqA">For daily use, no: the dashboard is a normal website. For the one-time setup, yes, a bit: you will run a few commands over SSH and point a domain at your server. The <a class="acn-textLink" href="https://connect.addaxai.com/deployment/" target="_blank" rel="noopener">deployment guide</a> covers it, and if it is not your thing, we can do it for you.</p>
-        </details>
-        <details class="acn-faqItem">
-          <summary class="acn-faqQ">What does it really cost?</summary>
-          <p class="acn-faqA">The software is free. You pay for the hardware around it: a server (example: ~$48 per month), cameras, SIM data plans and a domain. The <a class="acn-textLink" href="https://plan.addaxai.com" target="_blank" rel="noopener">planning tool</a> gives an itemized estimate for your setup.</p>
+          <p class="acn-faqA">For daily use, no. The dashboard is a normal website. For the setup, a little. You run a few commands on a server and point a domain at it. The <a class="acn-textLink" href="https://connect.addaxai.com/deployment/" target="_blank" rel="noopener">deployment guide</a> explains every step. If that is not your thing, we can do it for you.</p>
         </details>
         <details class="acn-faqItem">
           <summary class="acn-faqQ">Which cameras work?</summary>
-          <p class="acn-faqA">Any camera trap that can upload over FTPS, which out in the field usually means a cellular one. Tested models include the Willfine 4.0T CG, the Swift Enduro 4.0PCG-R and INSTAR; other models can work through a custom camera profile. The docs keep the <a class="acn-textLink" href="https://connect.addaxai.com/camera-requirements/#supported-cameras" target="_blank" rel="noopener">current list</a>, along with what a camera needs to be compatible.</p>
+          <p class="acn-faqA">Any camera trap that can upload over FTPS. In the field that usually means a cellular one. We have tested the Willfine 4.0T CG, the Swift Enduro 4.0PCG-R and INSTAR. The docs keep the <a class="acn-textLink" href="https://connect.addaxai.com/camera-requirements/#supported-cameras" target="_blank" rel="noopener">current list</a>, with what a camera needs. Other cameras need a profile first, so the system can read their files. If your camera meets the requirements and you want it added, <a class="acn-textLink" href="https://addaxdatascience.com/contact/" target="_blank" rel="noopener">let us know</a>. Same if you are not sure about a specific model.</p>
         </details>
         <details class="acn-faqItem">
           <summary class="acn-faqQ">Can I use cameras that are not connected?</summary>
-          <p class="acn-faqA">Yes. A project admin can upload a folder of images straight from an SD card and assign it to a camera, and those photos run through the same detection, classification, dashboards and exports as everything else. The server is sized for photos arriving a few at a time, not thousands at once, so a full card takes a while to work through. Connected cameras always go first. A bulk upload fills the gaps in the background and never delays a real-time alert.</p>
+          <p class="acn-faqA">Yes. You upload a folder of photos from an SD card and pick the camera. Those photos then go through the same AI, dashboards and exports as the rest. It is slow, though. The server is built for photos that arrive a few at a time, not thousands at once. Connected cameras always go first, so a big upload never delays an alert. It runs in the background.</p>
         </details>
         <details class="acn-faqItem">
           <summary class="acn-faqQ">Which species can it recognise?</summary>
-          <p class="acn-faqA">MegaDetector finds the animals, then DeepFaune or SpeciesNet names the species. Other models from the AddaxAI <a class="acn-textLink" href="https://docs.addaxai.com/docs/reference/model-zoo" target="_blank" rel="noopener">model zoo</a> can be added on request, as long as their licence allows it: some are free for any use, others are non-commercial. <a class="acn-textLink" href="https://github.com/PetervanLunteren/AddaxAI-Connect/issues" target="_blank" rel="noopener">Ask</a> if you need one for your region.</p>
+          <p class="acn-faqA">MegaDetector finds the animals. DeepFaune or SpeciesNet then names the species. Need another model from the AddaxAI <a class="acn-textLink" href="https://docs.addaxai.com/docs/reference/model-zoo" target="_blank" rel="noopener">model zoo</a>? <a class="acn-textLink" href="https://addaxdatascience.com/contact/" target="_blank" rel="noopener">Let us know</a>! Check the licence first, though. Some are free for any use, others are not allowed for commercial work.</p>
         </details>
         <details class="acn-faqItem">
           <summary class="acn-faqQ">Can I use it commercially?</summary>
-          <p class="acn-faqA">Yes, but check the licences. Connect itself is <a class="acn-textLink" href="https://github.com/PetervanLunteren/AddaxAI-Connect/blob/main/LICENSE" target="_blank" rel="noopener">MIT-licensed</a>. The models it runs have their own: <a class="acn-textLink" href="https://github.com/google/cameratrapai/blob/main/LICENSE" target="_blank" rel="noopener">SpeciesNet is Apache 2.0</a> and the <a class="acn-textLink" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">DeepFaune weights are CC BY-SA 4.0</a>. All three allow commercial use and ask for attribution, and CC BY-SA also asks that anything you build on the model itself is shared on the same terms. Models added later from the AddaxAI model zoo have their own licences again, and some of those are non-commercial.</p>
+          <p class="acn-faqA">Yes, but check the licences. The platform is <a class="acn-textLink" href="https://github.com/PetervanLunteren/AddaxAI-Connect/blob/main/LICENSE" target="_blank" rel="noopener">MIT</a>. <a class="acn-textLink" href="https://github.com/google/cameratrapai/blob/main/LICENSE" target="_blank" rel="noopener">SpeciesNet is Apache 2.0</a>. The <a class="acn-textLink" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">DeepFaune weights are CC BY-SA 4.0</a>. All three allow commercial use if you credit them. CC BY-SA also asks you to share changes to the model on the same terms. Models from the model zoo have their own licences, and some are not allowed for commercial work.</p>
         </details>
         <details class="acn-faqItem">
           <summary class="acn-faqQ">Where do my images live?</summary>
-          <p class="acn-faqA">On your own server, and nowhere else. You choose the provider and the country it runs in, you hold the keys, and nothing is shared with anyone. Detected people and vehicles can be blurred automatically for privacy.</p>
+          <p class="acn-faqA">On your own server, and nowhere else. You pick the provider and the country. You hold the keys. Nothing is shared with us or with anyone else. Old images and nightly backups can move to cloud storage, if you want that. You pick that provider too, and it stays in your own account. The system can blur people and vehicles automatically.</p>
         </details>
         <details class="acn-faqItem">
           <summary class="acn-faqQ">Can you set it all up for me?</summary>
-          <p class="acn-faqA">Yes. We can plan the project with you, source and configure the cameras, run the server and keep it updated. Start with the <a class="acn-textLink" href="https://plan.addaxai.com" target="_blank" rel="noopener">planning tool</a> or <a class="acn-textLink" href="https://addaxdatascience.com/contact/" target="_blank" rel="noopener">get in touch</a>.</p>
+          <p class="acn-faqA">Yes. We plan the project with you, supply and set up the cameras, run the server and keep it updated. Start with the <a class="acn-textLink" href="https://plan.addaxai.com" target="_blank" rel="noopener">planning tool</a>, or <a class="acn-textLink" href="https://addaxdatascience.com/contact/" target="_blank" rel="noopener">get in touch</a>.</p>
         </details>
       </div>
       <p class="acn-faqMore">
-        <a href="https://connect.addaxai.com/" target="_blank" rel="noopener">More questions</a>
+        Still have a question?
+        <a href="https://addaxdatascience.com/contact/" target="_blank" rel="noopener">Ask us</a>.
       </p>
     </div>
   </section>
@@ -1330,17 +1341,17 @@
   <section class="acn-section acn-center">
     <div class="acn-wide">
       <p class="acn-eyebrow">resources</p>
-      <h2 class="acn-h2">Docs, demo and code</h2>
+      <h2 class="acn-h2">Docs, plans and code</h2>
       <div class="acn-cards acn-cards3" style="text-align:left">
         <a class="acn-card" href="https://connect.addaxai.com/" target="_blank" rel="noopener">
           <span class="acn-cardIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
           <p class="acn-cardName">Documentation</p>
           <p class="acn-cardBody">From camera requirements to disaster recovery, every step written down.</p>
         </a>
-        <a class="acn-card" href="https://demo.addaxai.com" target="_blank" rel="noopener">
-          <span class="acn-cardIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></span>
-          <p class="acn-cardName">Live demo</p>
-          <p class="acn-cardBody">A real project with live data. Click around, no account needed.</p>
+        <a class="acn-card" href="https://plan.addaxai.com" target="_blank" rel="noopener">
+          <span class="acn-cardIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span>
+          <p class="acn-cardName">Planning tool</p>
+          <p class="acn-cardBody">Sketch your area, place your cameras, and get a cost estimate.</p>
         </a>
         <a class="acn-card" href="https://github.com/PetervanLunteren/AddaxAI-Connect" target="_blank" rel="noopener">
           <span class="acn-cardIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
@@ -1355,13 +1366,10 @@
   <section class="acn-section acn-finalCta">
     <div class="acn-narrow">
       <h2 class="acn-h2">See it running</h2>
-      <p class="acn-lead">The demo is a real project with live data. Have a look around.</p>
       <p class="acn-panelBtn">
         <a class="acn-btnSolid" href="https://demo.addaxai.com" target="_blank" rel="noopener">Try the live demo</a>
       </p>
-      <p class="acn-finalDocs">
-        <a href="https://connect.addaxai.com/" target="_blank" rel="noopener">Read the docs</a>
-      </p>
+      <p class="acn-finalNote">Click around, no account needed.</p>
     </div>
   </section>
 

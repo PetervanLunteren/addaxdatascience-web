@@ -861,40 +861,61 @@
 }
 
 /* ---------- FAQ ---------- */
+/* the questions sit on a card like the other panels, so the section has the
+   same weight as the rest of the page instead of floating as bare rules */
 .aai-lp .aai-faq {
-  margin-top: 1.5rem;
-  border-top: 1px solid var(--aai-e200);
+  margin-top: 2rem;
+  background: var(--aai-bg);
+  border-radius: 18px;
+  box-shadow: var(--aai-shadow-sm);
+  overflow: hidden;
+  text-align: left;
 }
 
-.aai-lp .aai-faqItem {
-  border-bottom: 1px solid var(--aai-e200);
-  padding: 0.25rem 0;
-}
+.aai-lp .aai-faqItem { border-top: 1px solid var(--aai-e200); }
+.aai-lp .aai-faqItem:first-child { border-top: 0; }
 
 .aai-lp .aai-faqQ {
   cursor: pointer;
   font-weight: 600;
   font-size: 1.05rem;
-  padding: 0.9rem 0.25rem;
+  padding: 1.15rem 1.5rem;
   list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  transition: background 0.14s ease;
 }
 
+.aai-lp .aai-faqQ:hover { background: #f5faf9; }
 .aai-lp .aai-faqQ::-webkit-details-marker { display: none; }
 
+/* a chip rather than a bare +, so it reads as something you can open */
 .aai-lp .aai-faqQ::before {
   content: "+";
-  display: inline-block;
-  width: 1.25rem;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(15, 96, 100, 0.10);
   color: var(--aai-primary);
   font-weight: 700;
+  font-size: 1rem;
+  line-height: 24px;
+  text-align: center;
+  transition: background 0.14s ease, color 0.14s ease;
 }
 
-.aai-lp .aai-faqItem[open] .aai-faqQ::before { content: "\2013"; }
+.aai-lp .aai-faqItem[open] .aai-faqQ::before {
+  content: "\2013";
+  background: var(--aai-primary);
+  color: #fff;
+}
 
 .aai-lp .aai-faqA {
-  margin: 0 0 0.9rem 1.25rem;
+  margin: -0.35rem 1.5rem 1.35rem 3.9rem;
   color: var(--aai-e700);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .aai-lp .aai-faqMore { margin-top: 1.5rem; font-weight: 600; }
@@ -1463,8 +1484,9 @@
   </section>
 
   <!-- ---------- FAQ ---------- -->
-  <section class="aai-section">
+  <section class="aai-section aai-sectionAlt">
     <div class="aai-narrow">
+      <p class="aai-eyebrow">before you ask</p>
       <h2 class="aai-h2">Common questions</h2>
       <div class="aai-faq">
         <details class="aai-faqItem">
