@@ -13,6 +13,7 @@ WordPress custom HTML block as a generated snippet.
 | `pages/<name>/urls.json` | local asset path → live URL rewrites used by the build |
 | `pages/<name>/assets/` | images for that page, served to the live site via jsDelivr |
 | `pages/addaxai-connect/mockup/` | source for the hero's phone mockup, with re-render instructions |
+| `pages/home-software/` | a section, not a page: two product cards to paste into the homepage |
 | `pages/_template/` | boilerplate for starting the next page |
 | `shared/fonts/` | original woff2 files; pages embed them as base64 |
 | `scripts/build.py` | source → snippet: extract, rewrite URLs, validate |

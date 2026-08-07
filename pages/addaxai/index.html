@@ -592,6 +592,49 @@
 .aai-lp .aai-finalDocs a:hover,
 .aai-lp .aai-textLink:hover { text-decoration: underline; }
 
+/* ---------- Cross-link to Connect ---------- */
+/* a quiet aside, not a second pitch: it sits after the two workflows because
+   that is where someone with connected cameras wonders about a third */
+.aai-lp .aai-cross {
+  max-width: 56rem;
+  margin: 0 auto;
+  background: var(--aai-bg);
+  border-radius: 18px;
+  box-shadow: var(--aai-shadow-sm);
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  text-align: left;
+}
+
+.aai-lp .aai-crossText h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.35rem;
+  color: #16211f;
+}
+
+.aai-lp .aai-crossText p {
+  margin: 0;
+  color: var(--aai-e700);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.aai-lp .aai-crossLink {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--aai-primary);
+  color: var(--aai-primary);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.aai-lp .aai-crossLink:hover { background: var(--aai-primary); color: #fff; }
+
 /* ---------- Species models: grouped directory ---------- */
 .aai-lp .aai-zoo {
   display: grid;
@@ -1029,6 +1072,7 @@
 }
 
 @media (max-width: 760px) {
+  .aai-lp .aai-cross { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
   .aai-lp .aai-showRow { grid-template-columns: 1fr; gap: 1.25rem; }
   .aai-lp .aai-showRowRev .aai-showText { order: 0; }
   .aai-lp .aai-modes { grid-template-columns: 1fr; }
@@ -1277,6 +1321,22 @@
           </p>
           <a class="aai-modeLink" href="https://docs.addaxai.com/docs/guides/build-a-project" target="_blank" rel="noopener">Learn more</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Cross-link to Connect ---------- -->
+  <section class="aai-sectionTight">
+    <div class="aai-wide">
+      <div class="aai-cross">
+        <div class="aai-crossText">
+          <h3>Cameras that send their own photos?</h3>
+          <p>
+            AddaxAI Connect does this work on your own server. Photos arrive by
+            themselves, the AI runs as they come in, and your team gets alerts.
+          </p>
+        </div>
+        <a class="aai-crossLink" href="https://addaxdatascience.com/addaxai-connect/">See AddaxAI Connect</a>
       </div>
     </div>
   </section>
